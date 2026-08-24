@@ -1,0 +1,344 @@
+<!doctype html><html lang="pt-br"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Direito do Trabalho II — Aula 08 — Negociado sobre o Legislado</title><style>
+:root{
+ --bg:#0d1b2a;--txt:#e8edf5;--muted:#a8bbce;--gold:#c9a84c;--gold2:#f0c96a;
+ --blue:#3b82f6;--green:#22c55e;--red:#ef4444;--orange:#f59e0b;--purple:#8b5cf6;--cyan:#22d3ee
+}
+*{box-sizing:border-box;margin:0;padding:0}html,body{width:100%;height:100%}
+body{font-family:Inter,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--txt);overflow:hidden}
+#cursor{width:14px;height:14px;border:2px solid var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;mix-blend-mode:difference}
+#cursor.big{transform:scale(3);opacity:.5}
+#bar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--blue));z-index:100;transition:width .35s}
+.slide{display:none;position:absolute;inset:0;padding:36px 56px 90px;flex-direction:column;justify-content:center;align-items:center;overflow:auto;animation:fade .35s ease}
+.slide.active{display:flex}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.capa{background:radial-gradient(circle at 18% 18%,#17315a 0%,#0b1b30 42%,#08131f 100%)}
+.teoria{background:linear-gradient(145deg,#0d1b2a,#091522)}
+.pratica{background:linear-gradient(145deg,#091f13,#0d1b2a)}
+.alerta{background:linear-gradient(145deg,#28130e,#0d1b2a)}
+.autonomia{background:linear-gradient(145deg,#0e1f35,#0d1b2a)}
+.protecao{background:linear-gradient(145deg,#25100d,#0d1b2a)}
+.juris{background:linear-gradient(145deg,#211609,#0d1b2a)}
+.matriz{background:linear-gradient(145deg,#18142d,#0d1b2a)}
+.controversia{background:linear-gradient(145deg,#10252a,#0d1b2a)}
+.badge{font:11px "Courier New",monospace;letter-spacing:3px;color:var(--gold);text-transform:uppercase;border:1px solid rgba(201,168,76,.42);padding:7px 18px;border-radius:40px;margin-bottom:18px;text-align:center}
+.capa-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,4.2vw,53px);font-weight:900;text-align:center;line-height:1.08;max-width:1160px;background:linear-gradient(135deg,#fff 20%,var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.capa-sub{font-size:clamp(14px,1.6vw,20px);color:var(--muted);text-align:center;margin-top:16px;line-height:1.4;max-width:1050px}
+.author{color:var(--gold);font-weight:700;margin-top:18px}
+.head{text-align:center;margin-bottom:17px;max-width:1140px;width:100%}
+.num{font:10px "Courier New",monospace;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(23px,3vw,35px);line-height:1.15;margin-top:5px}
+.card{width:100%;max-width:1040px;background:rgba(255,255,255,.052);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:20px 23px}
+.card p,.card li{font-size:14px;line-height:1.48}.card li{list-style:none;padding:5px 0 5px 22px;position:relative;border-bottom:1px solid rgba(255,255,255,.04)}
+.card li:last-child{border-bottom:none}.card li:before{content:"›";position:absolute;left:0;color:var(--gold);font-size:19px;top:1px}
+.grid2,.grid3,.grid4{display:grid;gap:13px;width:100%;max-width:1090px}.grid2{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(4,1fr)}
+.mini{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:17px;min-height:115px}
+.mini h4{color:var(--gold2);font-size:14px;margin-bottom:7px}.mini p,.mini li{color:var(--muted);font-size:12.7px;line-height:1.42}
+.gold{color:var(--gold2);font-weight:700}.green{color:#7bea9f;font-weight:700}.blue{color:#84b9ff;font-weight:700}.red{color:#ffaaaa;font-weight:700}.cyan{color:#86f4ff;font-weight:700}
+.box{width:100%;max-width:1040px;border-left:4px solid var(--gold);background:rgba(201,168,76,.08);padding:13px 16px;border-radius:0 12px 12px 0;margin-top:12px;font-size:13px;line-height:1.45}
+.bluebox{border-left-color:var(--blue);background:rgba(59,130,246,.08)}.greenbox{border-left-color:var(--green);background:rgba(34,197,94,.07)}.redbox{border-left-color:var(--red);background:rgba(239,68,68,.07)}.orangebox{border-left-color:var(--orange);background:rgba(245,158,11,.08)}
+.quote{font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,3vw,34px);line-height:1.3;text-align:center;max-width:980px}
+.flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;max-width:1100px}
+.node{min-width:145px;max-width:220px;padding:15px;border-radius:14px;background:rgba(255,255,255,.052);border:1px solid rgba(255,255,255,.12);text-align:center}
+.node strong{color:var(--gold2);display:block;margin-bottom:6px}.node span{font-size:12px;color:var(--muted);line-height:1.35}.arrow{color:var(--gold);font-size:25px}
+.table{border-collapse:collapse;width:100%;max-width:1100px;font-size:12.2px}.table th,.table td{border:1px solid rgba(255,255,255,.1);padding:10px;vertical-align:top;line-height:1.4}.table th{color:var(--gold2);background:rgba(201,168,76,.08)}
+.qbox{width:100%;max-width:970px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.27);border-radius:16px;padding:18px}
+.q{font-size:16px;font-weight:700;line-height:1.42;margin-bottom:8px}.opt{width:100%;text-align:left;margin-top:7px;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--muted);cursor:pointer;font-size:13px}
+.opt:hover{border-color:var(--blue);color:#fff}.opt.certa{border-color:var(--green);color:#baffcb;background:rgba(34,197,94,.08)}.opt.errada{border-color:var(--red);color:#ffc3c3;background:rgba(239,68,68,.08)}.opt:disabled{cursor:default}
+.fb{display:none;margin-top:10px;padding:11px;border-radius:10px;background:rgba(255,255,255,.05);font-size:12.5px;line-height:1.45}.fb.show{display:block}
+.source{margin-top:9px;font:9.6px "Courier New",monospace;color:#8097ad;max-width:1040px;width:100%;line-height:1.35}
+.note{display:none;position:fixed;right:18px;top:18px;bottom:78px;width:min(445px,42vw);overflow:auto;background:rgba(5,12,20,.98);border:1px solid rgba(201,168,76,.4);border-radius:14px;padding:17px;z-index:200;font-size:12px;line-height:1.45;color:#c9d7e6}
+body.notes .slide.active .note{display:block}
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:12px;align-items:center;padding:9px 16px;border-radius:30px;background:rgba(13,27,42,.95);border:1px solid rgba(255,255,255,.12);z-index:100}
+#nav button{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:none;color:#fff;font-size:18px;cursor:pointer}
+#count{font:11px "Courier New",monospace;min-width:80px;text-align:center}#help{position:fixed;left:18px;bottom:20px;color:#6f879d;font-size:10px}
+@media(max-width:900px){.slide{padding:52px 22px 82px;justify-content:flex-start}.grid2,.grid3,.grid4{grid-template-columns:1fr}.table{font-size:10px}#help{display:none}.note{width:calc(100vw - 36px);left:18px;right:18px}}
+</style></head><body><div id="cursor"></div><div id="bar"></div><section class="slide capa"><div class="badge">Direito do Trabalho II · Direito Coletivo</div>
+<div class="capa-title">Aula 08 — Negociado sobre o Legislado:<br>Possibilidades, Limites e Direitos Indisponíveis</div>
+<div class="capa-sub">24/08/2026 · 2 aulas · 80 minutos · Arts. 611-A e 611-B, CLT · Tema 1046/STF · Matriz de validade da cláusula coletiva</div>
+<div class="author">Prof. Adriano Március de Souza</div><aside class="note">Esta aula deve evitar duas frases extremas: &#x27;a lei sempre vence&#x27; e &#x27;o negociado sempre vence&#x27;. O objetivo é ensinar o método de análise.</aside></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 02</div><div class="title">Rota da Aula</div></div><div class="grid4">
+<div class="mini"><h4>1 · Ponto de partida</h4><p>O que significa prevalência do negociado?</p></div>
+<div class="mini"><h4>2 · Art. 611-A, CLT</h4><p>Espaço de autonomia coletiva.</p></div>
+<div class="mini"><h4>3 · Art. 611-B, CLT</h4><p>Zona de proteção e objeto ilícito.</p></div>
+<div class="mini"><h4>4 · Tema 1046</h4><p>Adequação setorial e direitos absolutamente indisponíveis.</p></div>
+</div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 03</div><div class="title">Provocação inicial</div></div><div class="quote">Quando uma CCT ou um ACT estabelece regra diferente da lei, devemos aplicar automaticamente a <span class="gold">lei</span>, o <span class="green">instrumento coletivo</span>, ou primeiro descobrir <span class="blue">qual direito está em jogo</span>?</div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 04</div><div class="title">1. Continuidade da Aula 07</div></div><div class="flow">
+<div class="node"><strong>CCT / ACT</strong><span>Instrumentos coletivos reconhecidos.</span></div><div class="arrow">→</div>
+<div class="node"><strong>Cláusula coletiva</strong><span>Regra negociada.</span></div><div class="arrow">→</div>
+<div class="node"><strong>Lei trabalhista</strong><span>Regra geral.</span></div><div class="arrow">→</div>
+<div class="node"><strong>Conflito</strong><span>Qual prevalece?</span></div>
+</div></section><section class="slide alerta"><div class="head"><div class="num">Aula 08 · 05</div><div class="title">2. Duas frases erradas</div></div><div class="grid2">
+<div class="mini"><h4>Erro 1</h4><p>“A lei sempre vence a negociação coletiva.”</p></div>
+<div class="mini"><h4>Erro 2</h4><p>“O negociado sempre vence a lei.”</p></div>
+</div>
+<div class="box greenbox"><strong>Formulação correta:</strong> a prevalência depende da matéria negociada, dos limites legais, constitucionais e dos direitos absolutamente indisponíveis.</div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 06</div><div class="title">3. Base constitucional da negociação</div></div><div class="card"><ul>
+<li>A Constituição reconhece as convenções e acordos coletivos de trabalho.</li>
+<li>A participação sindical nas negociações coletivas é constitucionalmente exigida.</li>
+<li>A Reforma Trabalhista não criou a autonomia coletiva: ela reorganizou e explicitou espaços de prevalência.</li>
+</ul></div>
+<div class="source">CF/88, Arts. 7º, XXVI, e 8º, VI.</div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 07</div><div class="title">4. O núcleo normativo da Aula 08</div></div><div class="grid4">
+<div class="mini"><h4>Art. 611-A, CLT</h4><p>Matérias em que CCT/ACT têm prevalência sobre a lei.</p></div>
+<div class="mini"><h4>Art. 611-B, CLT</h4><p>Direitos cuja supressão ou redução é objeto ilícito.</p></div>
+<div class="mini"><h4>Art. 8º, § 3º, CLT</h4><p>Intervenção mínima na autonomia da vontade coletiva.</p></div>
+<div class="mini"><h4>Tema 1046/STF</h4><p>Adequação setorial negociada e direitos absolutamente indisponíveis.</p></div>
+</div></section><section class="slide autonomia"><div class="head"><div class="num">Aula 08 · 08</div><div class="title">5. Art. 611-A, CLT — espaço de autonomia</div></div><div class="card"><ul>
+<li>CCT e ACT têm prevalência sobre a lei quando dispuserem sobre certas matérias.</li>
+<li>O dispositivo usa a expressão <span class="gold">“entre outros”</span>, sinalizando um rol aberto, mas não ilimitado.</li>
+<li>Mesmo em matéria negociável, devem ser observados limites constitucionais e direitos absolutamente indisponíveis.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-A, caput.</div></section><section class="slide autonomia"><div class="head"><div class="num">Aula 08 · 09</div><div class="title">6. A lógica do Art. 611-A, CLT</div></div><div class="quote"><span class="gold">Lei geral e abstrata</span><br>pode ser adaptada por<br><span class="green">negociação coletiva setorial e concreta</span></div>
+<div class="box">A negociação busca adaptar condições de trabalho à realidade da categoria, setor ou empresa.</div></section><section class="slide autonomia"><div class="head"><div class="num">Aula 08 · 10</div><div class="title">7. Bloco 1 — Jornada e tempo de trabalho</div></div><div class="card"><ul>
+<li>Jornada de trabalho, observados os limites constitucionais.</li>
+<li>Banco de horas anual.</li>
+<li>Intervalo intrajornada, respeitado o mínimo legal da hipótese.</li>
+<li>Modalidade de registro de jornada.</li>
+<li>Troca do dia de feriado.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-A, I, II, III, X e XI.</div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 11</div><div class="title">8. Caso — banco de horas anual</div></div><div class="qbox"><div class="q">ACT firmado entre sindicato profissional e empresa institui banco de horas anual.</div>
+<div class="box greenbox"><strong>Em princípio, possível:</strong> banco de horas anual está no espaço de negociação do Art. 611-A, II, CLT, observado o restante do ordenamento.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 12</div><div class="title">9. Caso — intervalo intrajornada</div></div><div class="grid2">
+<div class="mini"><h4>Hipótese A</h4><p>Intervalo de 60 min → 40 min em jornada superior a 6 horas.</p><p class="green">Em princípio, possível.</p></div>
+<div class="mini"><h4>Hipótese B</h4><p>Intervalo de 60 min → 20 min em jornada superior a 6 horas.</p><p class="red">Problema: abaixo do mínimo legal.</p></div>
+</div>
+<div class="source">CLT, Art. 611-A, III.</div></section><section class="slide autonomia"><div class="head"><div class="num">Aula 08 · 13</div><div class="title">10. Bloco 2 — Organização empresarial e tecnológica</div></div><div class="card"><ul>
+<li>Plano de cargos, salários e funções.</li>
+<li>Regulamento empresarial.</li>
+<li>Teletrabalho, regime de sobreaviso e trabalho intermitente.</li>
+<li>Representante dos trabalhadores no local de trabalho.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-A, V, VI, VII e VIII.</div></section><section class="slide autonomia"><div class="head"><div class="num">Aula 08 · 14</div><div class="title">11. Bloco 3 — Remuneração variável e incentivos</div></div><div class="card"><ul>
+<li>Remuneração por produtividade.</li>
+<li>Remuneração por desempenho individual.</li>
+<li>Prêmios de incentivo.</li>
+<li>Participação nos lucros ou resultados.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-A, IX, XIV e XV.</div></section><section class="slide autonomia"><div class="head"><div class="num">Aula 08 · 15</div><div class="title">12. Bloco 4 — Insalubridade e jornada</div></div><div class="card"><ul>
+<li>Enquadramento do grau de insalubridade.</li>
+<li>Prorrogação de jornada em ambientes insalubres sem licença prévia das autoridades competentes.</li>
+<li>Esses temas exigem cuidado porque tocam saúde, segurança, negociação coletiva e jurisprudência em construção.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-A, XII e XIII.</div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 16</div><div class="title">Fixação 01</div></div><div class="qbox quiz" data-correct="0"><div class="q">A CCT reduz o intervalo intrajornada de empregados com jornada superior a seis horas de 60 para 40 minutos. Considerando apenas o limite do Art. 611-A, III, CLT, a leitura inicial mais adequada é:</div>
+<button class="opt">A) Em princípio possível, pois o intervalo permanece acima do mínimo de 30 minutos previsto para essa negociação.</button>
+<button class="opt">B) Sempre inválida, porque intervalo nunca pode ser negociado.</button>
+<button class="opt">C) Válida apenas se cada trabalhador assinar autorização individual.</button>
+<button class="opt">D) Inválida porque a CCT sempre perde para a lei.</button>
+<div class="fb"><strong>Fundamento:</strong> O Art. 611-A, III, CLT admite negociação do intervalo, respeitado o mínimo de 30 minutos.</div></div></section><section class="slide juris"><div class="head"><div class="num">Aula 08 · 17</div><div class="title">13. Tema 1046/STF — a tese central</div></div><div class="card"><ul>
+<li>O STF reconheceu a constitucionalidade de normas coletivas que limitam ou afastam direitos trabalhistas.</li>
+<li>Não é necessária a explicitação de vantagens compensatórias específicas.</li>
+<li>O limite está na preservação dos <span class="gold">direitos absolutamente indisponíveis</span>.</li>
+</ul></div>
+<div class="source">STF, Tema 1046, ARE 1.121.633.</div></section><section class="slide juris"><div class="head"><div class="num">Aula 08 · 18</div><div class="title">14. Adequação setorial negociada</div></div><div class="card"><ul>
+<li>Os sujeitos coletivos conhecem a realidade do setor ou empresa.</li>
+<li>A negociação permite adaptar regras gerais a necessidades concretas.</li>
+<li>Mas adequação setorial não significa retirada irrestrita de direitos.</li>
+</ul></div></section><section class="slide juris"><div class="head"><div class="num">Aula 08 · 19</div><div class="title">15. O Tema 1046 fortalece, mas não absolutiza</div></div><div class="grid2">
+<div class="mini"><h4>Fortalece</h4><p>Reconhece amplo espaço constitucional para a negociação coletiva.</p></div>
+<div class="mini"><h4>Limita</h4><p>Preserva direitos absolutamente indisponíveis como fronteira da autonomia coletiva.</p></div>
+</div></section><section class="slide juris"><div class="head"><div class="num">Aula 08 · 20</div><div class="title">16. Vantagem compensatória específica</div></div><div class="card"><ul>
+<li>Não se exige demonstração matemática de vantagem compensatória para cada cláusula flexibilizadora.</li>
+<li>A ausência de contrapartida expressa não gera, por si só, nulidade do instrumento.</li>
+<li>Isso não impede controle de fraude, vício de validade ou violação a direitos absolutamente indisponíveis.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-A, § 2º; STF, Tema 1046.</div></section><section class="slide juris"><div class="head"><div class="num">Aula 08 · 21</div><div class="title">17. Negociação global não é contabilidade cláusula por cláusula</div></div><div class="quote">Não é: <span class="red">“perdeu X, precisa ganhar exatamente Y”</span>.<br>É: análise de um <span class="gold">instrumento coletivo global</span>, submetido a limites materiais.</div></section><section class="slide alerta"><div class="head"><div class="num">Aula 08 · 22</div><div class="title">18. Contrapartida não salva direito indisponível</div></div><div class="card"><p>CCT reduz férias anuais para 20 dias, mas concede bônus de R$ 5.000.</p></div>
+<div class="box redbox"><strong>Inválido.</strong> Uma ótima contrapartida não torna negociável o que está protegido como direito indisponível ou objeto ilícito de supressão/redução.</div>
+<div class="source">CLT, Art. 611-B, XI.</div></section><section class="slide protecao"><div class="head"><div class="num">Aula 08 · 23</div><div class="title">19. Art. 611-B, CLT — zona de proteção</div></div><div class="card"><ul>
+<li>O Art. 611-B, CLT define direitos cuja supressão ou redução por CCT ou ACT constitui objeto ilícito.</li>
+<li>É a linha vermelha expressa da negociação coletiva.</li>
+<li>Deve ser lido junto com a Constituição e o Tema 1046/STF.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-B.</div></section><section class="slide protecao"><div class="head"><div class="num">Aula 08 · 24</div><div class="title">20. Grupo 1 — Proteção econômica mínima</div></div><div class="card"><ul>
+<li>Salário mínimo.</li>
+<li>FGTS e indenização rescisória.</li>
+<li>Valor nominal do 13º salário.</li>
+<li>Repouso semanal remunerado.</li>
+<li>Adicional mínimo de horas extras e adicional noturno.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-B, IV, III, V, IX, X e VI.</div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 25</div><div class="title">21. Caso — horas extras com adicional de 30%</div></div><div class="qbox"><div class="q">CCT fixa adicional de horas extras em 30%.</div>
+<div class="box redbox"><strong>Inválido.</strong> O mínimo constitucional/legal de 50% é protegido; a negociação não pode reduzi-lo.</div>
+<div class="source">CF/88, Art. 7º, XVI; CLT, Art. 611-B, X.</div></div></section><section class="slide protecao"><div class="head"><div class="num">Aula 08 · 26</div><div class="title">22. Grupo 2 — Férias e licenças</div></div><div class="card"><ul>
+<li>Número de dias de férias.</li>
+<li>Férias com acréscimo de pelo menos 1/3.</li>
+<li>Licença-maternidade mínima.</li>
+<li>Licença-paternidade nos termos legais.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-B, XI, XII, XIII e XIV.</div></section><section class="slide protecao"><div class="head"><div class="num">Aula 08 · 27</div><div class="title">23. Grupo 3 — Saúde, higiene e segurança</div></div><div class="card"><ul>
+<li>Normas de saúde, higiene e segurança previstas em lei ou em Normas Regulamentadoras.</li>
+<li>Adicional de remuneração para atividades penosas, insalubres ou perigosas.</li>
+<li>Proteções ligadas à vida e à integridade física exigem atenção especial.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-B, XVII e XVIII.</div></section><section class="slide alerta"><div class="head"><div class="num">Aula 08 · 28</div><div class="title">24. A “falsa” saúde e segurança no Art. 611-B</div></div><div class="card"><ul>
+<li>Para os fins do Art. 611-B, CLT, regras sobre duração do trabalho e intervalos não são consideradas normas de saúde, higiene e segurança.</li>
+<li>Isso não nega que descanso e jornada tenham relevância fisiológica.</li>
+<li>Significa que o legislador criou uma classificação jurídica específica para esse artigo.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-B, parágrafo único.</div></section><section class="slide protecao"><div class="head"><div class="num">Aula 08 · 29</div><div class="title">25. Grupo 4 — Crianças, adolescentes e vulnerabilidades</div></div><div class="card"><ul>
+<li>Proteção legal de crianças e adolescentes.</li>
+<li>Proibição de trabalho noturno, perigoso ou insalubre a menores de 18 anos.</li>
+<li>Proibição de trabalho a menores de 16 anos, salvo aprendiz a partir de 14.</li>
+<li>Proteção contra discriminação do trabalhador com deficiência.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-B, XXII, XXIII, XXIV e XXII; CF/88, Art. 7º, XXXIII.</div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 30</div><div class="title">26. Caso — menor em ambiente insalubre</div></div><div class="qbox"><div class="q">Assembleia aprova, por unanimidade, cláusula permitindo trabalho de adolescente de 17 anos em atividade insalubre.</div>
+<div class="box redbox"><strong>Inválido.</strong> Nem unanimidade coletiva transforma direito absolutamente indisponível em matéria livremente negociável.</div></div></section><section class="slide protecao"><div class="head"><div class="num">Aula 08 · 31</div><div class="title">27. Grupo 5 — Liberdade sindical e greve</div></div><div class="card"><ul>
+<li>Liberdade de associação profissional ou sindical.</li>
+<li>Direito de greve.</li>
+<li>Regras legais sobre atendimento de necessidades inadiáveis em atividades essenciais.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-B, XXVI, XXVII e XXVIII.</div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 32</div><div class="title">28. Caso — renúncia ao direito de greve</div></div><div class="qbox"><div class="q">CCT estabelece que todos os trabalhadores renunciam ao direito de greve por cinco anos.</div>
+<div class="box redbox"><strong>Inválido.</strong> O direito de greve integra o núcleo protegido contra supressão ou redução por negociação coletiva.</div></div></section><section class="slide protecao"><div class="head"><div class="num">Aula 08 · 33</div><div class="title">29. Direitos absolutamente indisponíveis</div></div><div class="card"><ul>
+<li>Não existe fórmula única e exaustiva para identificá-los.</li>
+<li>Em geral, conectam-se à dignidade, cidadania, saúde e segurança, não discriminação, proteção de vulneráveis e garantias constitucionais mínimas.</li>
+<li>Não pertencem ao sindicato como se fossem patrimônio disponível da entidade.</li>
+</ul></div></section><section class="slide protecao"><div class="head"><div class="num">Aula 08 · 34</div><div class="title">30. Frase-chave para a turma</div></div><div class="quote">O sindicato possui poder de <span class="gold">representação e negociação</span>, mas não é proprietário dos <span class="red">direitos fundamentais dos trabalhadores</span>.</div></section><section class="slide matriz"><div class="head"><div class="num">Aula 08 · 35</div><div class="title">31. Três zonas de análise</div></div><table class="table">
+<tr><th>Zona</th><th>Significado</th><th>Exemplo</th></tr>
+<tr><td>🟢 Zona de autonomia</td><td>Matéria claramente negociável dentro dos limites jurídicos.</td><td>Banco de horas anual.</td></tr>
+<tr><td>🔴 Zona de indisponibilidade</td><td>Direito não pode ser reduzido ou suprimido.</td><td>Férias mínimas; adicional de horas extras inferior a 50%.</td></tr>
+<tr><td>🟡 Zona de controvérsia</td><td>Há interação entre negociação, Constituição e jurisprudência ainda em consolidação.</td><td>Prorrogação de jornada em ambiente insalubre sem licença prévia.</td></tr>
+</table></section><section class="slide controversia"><div class="head"><div class="num">Aula 08 · 36</div><div class="title">32. Zona de controvérsia — ambiente insalubre</div></div><div class="card"><ul>
+<li>O Art. 611-A, XIII, CLT autoriza negociação sobre prorrogação de jornada em ambientes insalubres sem licença prévia.</li>
+<li>Ao mesmo tempo, a Constituição protege a redução dos riscos inerentes ao trabalho.</li>
+<li>O Tema 1046/STF prestigia a negociação, mas preserva direitos absolutamente indisponíveis.</li>
+</ul></div>
+<div class="source">CLT, Art. 611-A, XIII; CF/88, Art. 7º, XXII; STF, Tema 1046.</div></section><section class="slide controversia"><div class="head"><div class="num">Aula 08 · 37</div><div class="title">33. IRR 149/TST</div></div><div class="card"><ul>
+<li>O TST afetou a discussão sobre validade de norma coletiva que dispensa licença prévia para prorrogação de jornada em ambiente insalubre.</li>
+<li>O debate envolve o Tema 1046/STF, o Art. 60, CLT, e o Art. 611-A, CLT.</li>
+<li>No índice oficial de precedentes qualificados consultado para esta aula, a tese ainda não aparece fixada.</li>
+</ul></div>
+<div class="source">TST, IRR 149 — RR-100225-49.2020.5.03.0041.</div></section><section class="slide alerta"><div class="head"><div class="num">Aula 08 · 38</div><div class="title">34. Como ensinar a controvérsia sem inventar resposta</div></div><div class="grid2">
+<div class="mini"><h4>Incorreto</h4><p>“Sempre pode.” ou “nunca pode.”</p></div>
+<div class="mini"><h4>Correto</h4><p>Explicar a tensão entre Art. 611-A, XIII, CLT, saúde e segurança, Tema 1046/STF e a uniformização pendente no TST.</p></div>
+</div></section><section class="slide matriz"><div class="head"><div class="num">Aula 08 · 39</div><div class="title">35. Matriz de validade da cláusula coletiva</div></div><div class="flow">
+<div class="node"><strong>1</strong><span>Há CCT/ACT válido e aplicável?</span></div><div class="arrow">→</div>
+<div class="node"><strong>2</strong><span>A matéria é negociável?</span></div><div class="arrow">→</div>
+<div class="node"><strong>3</strong><span>Há vedação no Art. 611-B, CLT?</span></div><div class="arrow">→</div>
+<div class="node"><strong>4</strong><span>Há direito absolutamente indisponível?</span></div><div class="arrow">→</div>
+<div class="node"><strong>5</strong><span>A cláusula pode prevalecer?</span></div>
+</div></section><section class="slide matriz"><div class="head"><div class="num">Aula 08 · 40</div><div class="title">36. Camadas de controle</div></div><div class="grid4">
+<div class="mini"><h4>Constituição</h4><p>Há limite constitucional expresso ou núcleo fundamental?</p></div>
+<div class="mini"><h4>Art. 611-B</h4><p>Há objeto ilícito de supressão ou redução?</p></div>
+<div class="mini"><h4>Indisponibilidade</h4><p>A cláusula toca patamar civilizatório mínimo?</p></div>
+<div class="mini"><h4>Art. 611-A</h4><p>Estando no campo negociável, a autonomia coletiva é prestigiada.</p></div>
+</div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 41</div><div class="title">37. Intervenção mínima na autonomia coletiva</div></div><div class="card"><ul>
+<li>A Justiça do Trabalho, ao examinar CCT ou ACT, deve analisar elementos essenciais do negócio jurídico.</li>
+<li>A atuação judicial deve respeitar o princípio da intervenção mínima na autonomia da vontade coletiva.</li>
+<li>Isso não elimina controle judicial de validade.</li>
+</ul></div>
+<div class="source">CLT, Art. 8º, § 3º.</div></section><section class="slide alerta"><div class="head"><div class="num">Aula 08 · 42</div><div class="title">38. Controle judicial ainda existe</div></div><div class="card"><ul>
+<li>Cláusulas fraudulentas podem ser invalidadas.</li>
+<li>Cláusulas que violam direitos absolutamente indisponíveis podem ser invalidadas.</li>
+<li>Cláusulas produzidas com vícios essenciais podem ser invalidadas.</li>
+<li>Autonomia coletiva não é imunidade jurídica.</li>
+</ul></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 43</div><div class="title">39. Negociação coletiva não é renúncia individual</div></div><div class="card"><ul>
+<li>A autonomia individual do empregado é marcada por maior assimetria diante da empresa.</li>
+<li>Na negociação coletiva, atua um sujeito coletivo profissional.</li>
+<li>Por isso, o ordenamento reconhece espaço maior à autonomia coletiva, sem transformá-la em poder absoluto.</li>
+</ul></div></section><section class="slide alerta"><div class="head"><div class="num">Aula 08 · 44</div><div class="title">40. A maioria pode tudo?</div></div><div class="quote">Uma cláusula aprovada por 90% da categoria pode reduzir um direito absolutamente indisponível?</div>
+<div class="box redbox"><strong>Resposta:</strong> não necessariamente. Democracia coletiva também encontra limites jurídicos.</div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 45</div><div class="title">41. Fator temporal — o negociado também tem relógio</div></div><div class="card"><ul>
+<li>CCT e ACT possuem prazo de vigência.</li>
+<li>A CLT não permite duração superior a dois anos.</li>
+<li>Também é vedada a ultratividade.</li>
+<li>Encerrada a vigência, a cláusula não continua automaticamente produzindo efeitos normativos para o futuro.</li>
+</ul></div>
+<div class="source">CLT, Art. 614, § 3º.</div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 46</div><div class="title">42. Caso — banco de horas após expiração do ACT</div></div><div class="qbox"><div class="q">ACT instituiu banco de horas anual até 31/08/2026. Em 01/09/2026, sem novo instrumento, a empresa pretende continuar usando o mesmo banco de horas coletivo.</div>
+<div class="box orangebox"><strong>Alerta:</strong> a norma coletiva não se perpetua automaticamente. É preciso verificar novo instrumento coletivo ou outra base jurídica aplicável.</div></div></section><section class="slide matriz"><div class="head"><div class="num">Aula 08 · 47</div><div class="title">43. Quadro de casos — pode ou não pode?</div></div><table class="table">
+<tr><th>Cláusula negociada</th><th>Leitura inicial</th><th>Fundamento</th></tr>
+<tr><td>Banco de horas anual</td><td>🟢 Em princípio possível</td><td>Art. 611-A, II, CLT</td></tr>
+<tr><td>Intervalo 60 → 40 min</td><td>🟢 Em princípio possível</td><td>Art. 611-A, III, CLT</td></tr>
+<tr><td>Intervalo 60 → 20 min</td><td>🔴 Inválido</td><td>Abaixo do mínimo de 30 min</td></tr>
+<tr><td>Férias de 20 dias</td><td>🔴 Inválido</td><td>Art. 611-B, XI, CLT</td></tr>
+<tr><td>Hora extra 30%</td><td>🔴 Inválido</td><td>Art. 611-B, X, CLT</td></tr>
+<tr><td>Prorrogação em ambiente insalubre sem licença</td><td>🟡 Controvérsia</td><td>Art. 611-A, XIII, CLT + Tema 1046/STF + IRR 149/TST</td></tr>
+</table></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 48</div><div class="title">44. Caso integrador — Fronteira Industrial Ltda.</div></div><div class="card"><p>ACT firmado entre sindicato profissional e a empresa contém seis cláusulas: banco de horas anual; intervalo de 40 minutos; intervalo de 20 minutos; férias de 20 dias com bônus; hora extra de 35%; prorrogação de jornada em ambiente insalubre sem licença prévia.</p></div>
+<div class="box">A turma deve classificar cada cláusula nas zonas: autonomia, indisponibilidade ou controvérsia.</div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 49</div><div class="title">45. Resolução do caso integrador</div></div><table class="table">
+<tr><th>Cláusula</th><th>Classificação</th><th>Comentário</th></tr>
+<tr><td>Banco de horas anual</td><td>🟢 Autonomia</td><td>Matéria do Art. 611-A, II, CLT.</td></tr>
+<tr><td>Intervalo de 40 min</td><td>🟢 Autonomia</td><td>Respeita mínimo de 30 min.</td></tr>
+<tr><td>Intervalo de 20 min</td><td>🔴 Indisponibilidade/limite</td><td>Ultrapassa limite mínimo.</td></tr>
+<tr><td>Férias de 20 dias</td><td>🔴 Indisponibilidade</td><td>Art. 611-B, XI, CLT.</td></tr>
+<tr><td>Hora extra de 35%</td><td>🔴 Indisponibilidade</td><td>Art. 611-B, X, CLT.</td></tr>
+<tr><td>Insalubridade sem licença</td><td>🟡 Controvérsia</td><td>Matéria sob discussão qualificada no TST.</td></tr>
+</table></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 50</div><div class="title">Fixação 02</div></div><div class="qbox quiz" data-correct="2"><div class="q">Uma CCT fixa férias anuais de 20 dias, mas concede bônus financeiro expressivo aos empregados. Qual alternativa melhor representa a análise jurídica?</div>
+<button class="opt">A) Válida, pois toda contrapartida financeira autoriza reduzir férias.</button>
+<button class="opt">B) Válida apenas se aprovada por maioria qualificada na assembleia.</button>
+<button class="opt">C) Inválida, pois o número de dias de férias está protegido contra supressão ou redução por negociação coletiva.</button>
+<button class="opt">D) Válida, porque o Tema 1046 eliminou todos os limites materiais à negociação coletiva.</button>
+<div class="fb"><strong>Fundamento:</strong> O Art. 611-B, XI, CLT protege o número de dias de férias. Contrapartida não salva direito indisponível.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Aula 08 · 51</div><div class="title">Fixação 03</div></div><div class="qbox quiz" data-correct="3"><div class="q">Após o Tema 1046/STF, qual afirmação é tecnicamente mais segura?</div>
+<button class="opt">A) O negociado sempre prevalece sobre qualquer lei trabalhista.</button>
+<button class="opt">B) A lei sempre prevalece sobre qualquer norma coletiva menos favorável.</button>
+<button class="opt">C) A norma coletiva só é válida se demonstrar vantagem compensatória específica para cada direito limitado.</button>
+<button class="opt">D) A negociação coletiva é prestigiada, inclusive para limitar ou afastar certos direitos, mas deve respeitar direitos absolutamente indisponíveis.</button>
+<div class="fb"><strong>Fundamento:</strong> Essa é a síntese mais fiel do Tema 1046/STF.</div></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 52</div><div class="title">46. Aplicação prática: método antes da resposta</div></div><div class="card"><ul>
+<li>Não responda “pode” ou “não pode” antes de identificar a matéria.</li>
+<li>Não trate Art. 611-A, CLT, isoladamente.</li>
+<li>Não trate Art. 611-B, CLT, como única fonte de proteção.</li>
+<li>Não trate Tema 1046/STF como autorização geral e ilimitada.</li>
+</ul></div></section><section class="slide alerta"><div class="head"><div class="num">Aula 08 · 53</div><div class="title">47. O erro do “mais favorável sempre vence”</div></div><div class="card"><ul>
+<li>No campo da negociação coletiva, a norma coletiva pode validamente estabelecer disciplina diferente da lei, inclusive menos vantajosa em certas matérias.</li>
+<li>Resolver tudo pela escolha automática da regra mais favorável ignora a autonomia coletiva reconhecida pela Constituição, pela CLT e pelo STF.</li>
+</ul></div></section><section class="slide alerta"><div class="head"><div class="num">Aula 08 · 54</div><div class="title">48. O erro do “negociado sempre vence”</div></div><div class="card"><ul>
+<li>A autonomia coletiva não autoriza supressão de direitos absolutamente indisponíveis.</li>
+<li>A negociação coletiva não supera a Constituição.</li>
+<li>Art. 611-B, CLT, direitos fundamentais e limites materiais continuam relevantes.</li>
+</ul></div></section><section class="slide matriz"><div class="head"><div class="num">Aula 08 · 55</div><div class="title">49. Frase síntese da aula</div></div><div class="quote">Em determinadas matérias e dentro dos limites constitucionais e legais, CCT e ACT podem prevalecer sobre a disciplina legal geral.</div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 56</div><div class="title">50. Síntese — Art. 611-A, CLT</div></div><div class="card"><ul>
+<li>É o espaço de autonomia coletiva.</li>
+<li>Contém matérias negociáveis, mas não cria liberdade ilimitada.</li>
+<li>Deve ser lido com Constituição, Art. 611-B, CLT, e Tema 1046/STF.</li>
+</ul></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 57</div><div class="title">51. Síntese — Art. 611-B, CLT</div></div><div class="card"><ul>
+<li>Define objetos ilícitos de supressão ou redução.</li>
+<li>Protege patamares mínimos trabalhistas.</li>
+<li>É a linha vermelha expressa da negociação coletiva.</li>
+</ul></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 58</div><div class="title">52. Síntese — Tema 1046/STF</div></div><div class="card"><ul>
+<li>Valoriza a negociação coletiva e a adequação setorial negociada.</li>
+<li>Dispensa vantagem compensatória específica expressa.</li>
+<li>Preserva direitos absolutamente indisponíveis.</li>
+</ul></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 59</div><div class="title">53. Síntese — Direitos indisponíveis</div></div><div class="card"><ul>
+<li>Ligam-se ao núcleo mínimo de proteção do trabalhador.</li>
+<li>Envolvem dignidade, saúde, segurança, não discriminação, proteção de vulneráveis e garantias constitucionais mínimas.</li>
+<li>Não podem ser afastados pela simples vontade da maioria.</li>
+</ul></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 60</div><div class="title">54. Síntese — Tempo e vigência</div></div><div class="card"><ul>
+<li>A prevalência da norma coletiva está ligada ao instrumento válido e vigente.</li>
+<li>O prazo máximo é de dois anos.</li>
+<li>A ultratividade automática é vedada.</li>
+<li>Encerrado o prazo, deve-se verificar nova base normativa.</li>
+</ul></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 61</div><div class="title">55. Síntese — Zona de controvérsia</div></div><div class="card"><ul>
+<li>Nem todo problema tem resposta binária simples.</li>
+<li>Prorrogação de jornada em ambiente insalubre sem licença prévia é tema sensível.</li>
+<li>Há previsão no Art. 611-A, XIII, CLT, mas a uniformização pelo TST no IRR 149 deve ser acompanhada.</li>
+</ul></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 62</div><div class="title">56. Fontes jurídicas da Aula 08</div></div><div class="card"><ul>
+<li>Constituição Federal: Arts. 7º, VI, XVI, XXII e XXVI; Art. 8º, VI.</li>
+<li>CLT: Arts. 8º, § 3º; 611-A; 611-B; 614, § 3º.</li>
+<li>STF: Tema 1046 da repercussão geral.</li>
+<li>TST: IRR 149 sobre prorrogação de jornada em ambiente insalubre sem licença prévia.</li>
+</ul></div></section><section class="slide teoria"><div class="head"><div class="num">Aula 08 · 63</div><div class="title">57. Atividade online — 20 minutos</div></div><div class="card"><ul>
+<li>Escolher cinco cláusulas hipotéticas e aplicar a Matriz de Validade da Cláusula Coletiva.</li>
+<li>Classificar cada cláusula como: zona de autonomia, zona de indisponibilidade ou zona de controvérsia.</li>
+<li>Responder em até 10 linhas: “Por que o Tema 1046/STF não significa que o negociado sempre vence?”</li>
+<li>Resolver o questionário final.</li>
+</ul></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 01/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="0"><div class="q">1. A expressão “negociado sobre o legislado” deve ser compreendida tecnicamente como:</div><button class="opt">A) A possibilidade de CCT e ACT prevalecerem em determinadas matérias, dentro de limites legais, constitucionais e de direitos absolutamente indisponíveis.</button><button class="opt">B) A autorização para sindicatos afastarem qualquer direito trabalhista previsto em lei.</button><button class="opt">C) A regra de que toda cláusula coletiva menos favorável é automaticamente inválida.</button><button class="opt">D) A substituição integral da legislação trabalhista pela vontade da assembleia.</button><div class="fb"><strong>Fundamento:</strong> A prevalência não é absoluta; depende da matéria e dos limites jurídicos.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 02/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="1"><div class="q">2. Qual dispositivo da CLT concentra, de forma mais direta, matérias em que CCT e ACT podem prevalecer sobre a lei?</div><button class="opt">A) Art. 611-B, CLT.</button><button class="opt">B) Art. 611-A, CLT.</button><button class="opt">C) Art. 614, § 3º, CLT.</button><button class="opt">D) Art. 8º, § 3º, CLT.</button><div class="fb"><strong>Fundamento:</strong> O Art. 611-A, CLT é o eixo do espaço de autonomia coletiva.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 03/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="2"><div class="q">3. O Art. 611-B, CLT funciona, na aula, como:</div><button class="opt">A) Uma lista de matérias que sempre podem ser negociadas.</button><button class="opt">B) Uma regra de prevalência automática do ACT sobre a CCT.</button><button class="opt">C) A zona de proteção que indica direitos cuja supressão ou redução por CCT ou ACT constitui objeto ilícito.</button><button class="opt">D) Uma norma sobre registro de instrumentos coletivos.</button><div class="fb"><strong>Fundamento:</strong> O Art. 611-B, CLT marca a linha vermelha de proteção.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 04/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="3"><div class="q">4. Segundo o Tema 1046/STF, é correto afirmar que:</div><button class="opt">A) Toda negociação coletiva é inválida se limitar direito previsto em lei.</button><button class="opt">B) A norma coletiva só é válida se apontar vantagem compensatória específica para cada cláusula restritiva.</button><button class="opt">C) Direitos absolutamente indisponíveis podem ser afastados por aprovação assemblear unânime.</button><button class="opt">D) CCT e ACT podem limitar ou afastar certos direitos trabalhistas, sem necessidade de vantagens compensatórias específicas, desde que respeitados direitos absolutamente indisponíveis.</button><div class="fb"><strong>Fundamento:</strong> Essa é a síntese da tese do Tema 1046/STF.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 05/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="0"><div class="q">5. Uma CCT reduz intervalo intrajornada de 60 para 40 minutos em jornada superior a 6 horas. Considerando o Art. 611-A, III, CLT, a leitura inicial é:</div><button class="opt">A) Em princípio possível, pois respeita o mínimo de 30 minutos.</button><button class="opt">B) Sempre inválida, porque intervalo é sempre absolutamente indisponível.</button><button class="opt">C) Válida somente se houver autorização individual de cada empregado.</button><button class="opt">D) Inválida porque qualquer redução de intervalo afronta a Constituição.</button><div class="fb"><strong>Fundamento:</strong> A CLT admite negociação do intervalo, respeitado mínimo de 30 minutos.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 06/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="1"><div class="q">6. Uma CCT reduz o intervalo intrajornada de 60 para 20 minutos em jornada superior a 6 horas. Qual é a análise mais adequada?</div><button class="opt">A) Válida, pois qualquer intervalo pode ser negociado.</button><button class="opt">B) Inválida, pois ultrapassa o limite mínimo de 30 minutos previsto no Art. 611-A, III, CLT.</button><button class="opt">C) Válida se houver aumento salarial compensatório.</button><button class="opt">D) Válida apenas se a empresa comprovar dificuldade econômica.</button><div class="fb"><strong>Fundamento:</strong> A cláusula ficaria abaixo do piso mínimo previsto para a negociação.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 07/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="2"><div class="q">7. Uma CCT reduz férias anuais para 20 dias, mas concede bônus financeiro de alto valor. A cláusula tende a ser:</div><button class="opt">A) Válida, pois há vantagem compensatória evidente.</button><button class="opt">B) Válida se aprovada por assembleia.</button><button class="opt">C) Inválida, pois o número de dias de férias está protegido pelo Art. 611-B, XI, CLT.</button><button class="opt">D) Válida apenas em ACT, não em CCT.</button><div class="fb"><strong>Fundamento:</strong> Contrapartida não torna negociável o direito protegido contra supressão ou redução.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 08/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="3"><div class="q">8. Uma norma coletiva estabelece adicional de horas extras de 35%. A conclusão correta é:</div><button class="opt">A) Válida, porque o Tema 1046 permite reduzir qualquer adicional.</button><button class="opt">B) Válida se houver banco de horas anual.</button><button class="opt">C) Válida se a categoria aprovar em assembleia.</button><button class="opt">D) Inválida, pois o adicional mínimo de horas extras não pode ser reduzido abaixo do patamar constitucional/legal.</button><div class="fb"><strong>Fundamento:</strong> O mínimo de 50% está protegido.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 09/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="0"><div class="q">9. Banco de horas anual pactuado por ACT, em princípio, encontra apoio em:</div><button class="opt">A) Art. 611-A, II, CLT.</button><button class="opt">B) Art. 611-B, XI, CLT.</button><button class="opt">C) Art. 614, § 3º, CLT.</button><button class="opt">D) Art. 8º, § 3º, CLT.</button><div class="fb"><strong>Fundamento:</strong> Banco de horas anual aparece entre as matérias negociáveis.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 10/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="1"><div class="q">10. A ausência de vantagem compensatória específica expressa em uma cláusula coletiva:</div><button class="opt">A) Sempre gera nulidade da cláusula.</button><button class="opt">B) Não gera, por si só, nulidade do instrumento coletivo, sem afastar controle de validade por outros fundamentos.</button><button class="opt">C) Torna válida qualquer redução de direito indisponível.</button><button class="opt">D) Impede a aplicação do Tema 1046/STF.</button><div class="fb"><strong>Fundamento:</strong> Art. 611-A, § 2º, CLT e Tema 1046 afastam exigência de contrapartida específica.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 11/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="2"><div class="q">11. A expressão “direitos absolutamente indisponíveis” deve ser compreendida como:</div><button class="opt">A) Todo e qualquer direito previsto em lei ordinária.</button><button class="opt">B) Apenas direitos criados em CCT ou ACT.</button><button class="opt">C) Núcleo mínimo de proteção ligado à dignidade, saúde, segurança, não discriminação, vulneráveis e garantias constitucionais mínimas.</button><button class="opt">D) Direitos disponíveis quando a maioria da categoria aprova.</button><div class="fb"><strong>Fundamento:</strong> Trata-se de núcleo material que limita a autonomia coletiva.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 12/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="3"><div class="q">12. A unanimidade em assembleia sindical:</div><button class="opt">A) Torna válida qualquer cláusula coletiva.</button><button class="opt">B) Dispensa a análise do Art. 611-B, CLT.</button><button class="opt">C) Substitui o controle judicial de validade.</button><button class="opt">D) Não transforma direito absolutamente indisponível em matéria livremente negociável.</button><div class="fb"><strong>Fundamento:</strong> Democracia coletiva também tem limites jurídicos.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 13/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="0"><div class="q">13. Para os fins do Art. 611-B, CLT, regras sobre duração do trabalho e intervalos:</div><button class="opt">A) Não são consideradas normas de saúde, higiene e segurança do trabalho, conforme parágrafo único do dispositivo.</button><button class="opt">B) São sempre inderrogáveis como normas de saúde e segurança.</button><button class="opt">C) Não podem ser objeto de negociação em nenhuma hipótese.</button><button class="opt">D) Somente podem ser negociadas em sentença normativa.</button><div class="fb"><strong>Fundamento:</strong> O parágrafo único traz essa classificação jurídica específica.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 14/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="1"><div class="q">14. Sobre prorrogação de jornada em ambiente insalubre sem licença prévia, a postura tecnicamente mais segura é:</div><button class="opt">A) Dizer que sempre é válida, sem ressalvas.</button><button class="opt">B) Reconhecer a existência de previsão no Art. 611-A, XIII, CLT, mas também a controvérsia relacionada à saúde e segurança, Tema 1046/STF e IRR 149/TST.</button><button class="opt">C) Dizer que nunca pode ser negociada, pois o Art. 611-A não existe.</button><button class="opt">D) Aplicar automaticamente o Art. 611-B, XI, CLT.</button><div class="fb"><strong>Fundamento:</strong> É uma zona de controvérsia em uniformização.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 15/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="2"><div class="q">15. O IRR 149/TST é relevante para a Aula 08 porque discute:</div><button class="opt">A) Registro de CCT no Sistema Mediador.</button><button class="opt">B) Contribuição assistencial e direito de oposição.</button><button class="opt">C) Validade de norma coletiva que dispensa licença prévia para prorrogação de jornada em ambiente insalubre, em diálogo com o Tema 1046/STF.</button><button class="opt">D) Unicidade sindical e base territorial.</button><div class="fb"><strong>Fundamento:</strong> O IRR 149 trata da matéria sensível de insalubridade e prorrogação de jornada.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 16/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="3"><div class="q">16. O Art. 614, § 3º, CLT é importante porque:</div><button class="opt">A) Permite duração indeterminada das normas coletivas.</button><button class="opt">B) Determina que toda norma coletiva continua automaticamente após expirar.</button><button class="opt">C) Trata da contribuição sindical facultativa.</button><button class="opt">D) Limita a vigência de CCT/ACT e veda a ultratividade automática.</button><div class="fb"><strong>Fundamento:</strong> A prevalência do negociado também deve observar vigência temporal.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 17/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="0"><div class="q">17. A intervenção mínima na autonomia coletiva, prevista na CLT, significa que:</div><button class="opt">A) O Judiciário deve respeitar a autonomia coletiva, mas ainda pode controlar vícios de validade e violação a direitos indisponíveis.</button><button class="opt">B) O Judiciário está proibido de examinar qualquer cláusula coletiva.</button><button class="opt">C) Qualquer cláusula sindical é automaticamente válida.</button><button class="opt">D) A Justiça do Trabalho só pode analisar contratos individuais.</button><div class="fb"><strong>Fundamento:</strong> Intervenção mínima não elimina controle de validade.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 18/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="1"><div class="q">18. Ao aplicar a Matriz de Validade, a primeira providência deve ser:</div><button class="opt">A) Comparar qual regra parece mais favorável ao trabalhador.</button><button class="opt">B) Confirmar se há CCT ou ACT válido e aplicável à relação analisada.</button><button class="opt">C) Presumir que o Art. 611-A sempre autoriza a cláusula.</button><button class="opt">D) Considerar válida qualquer cláusula aprovada em assembleia.</button><div class="fb"><strong>Fundamento:</strong> Sem instrumento válido e aplicável, não há sequer análise de prevalência.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 19/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="2"><div class="q">19. Qual frase melhor evita os dois extremos estudados na aula?</div><button class="opt">A) A lei sempre vence.</button><button class="opt">B) O negociado sempre vence.</button><button class="opt">C) A prevalência depende da matéria, dos limites legais/constitucionais e dos direitos absolutamente indisponíveis.</button><button class="opt">D) A assembleia decide sem controle jurídico.</button><div class="fb"><strong>Fundamento:</strong> Esta é a síntese metodológica da aula.</div></div></section><section class="slide pratica"><div class="head"><div class="num">Questionário de Fixação · 20/20</div><div class="title">Revisão Final — Negociado sobre o Legislado</div></div>
+<div class="qbox quiz" data-correct="3"><div class="q">20. Uma cláusula coletiva que suprime o direito de greve por cinco anos é:</div><button class="opt">A) Válida, se aprovada por maioria absoluta.</button><button class="opt">B) Válida, se houver contrapartida salarial.</button><button class="opt">C) Válida apenas em ACT.</button><button class="opt">D) Inválida, pois o direito de greve integra o núcleo protegido contra supressão ou redução.</button><div class="fb"><strong>Fundamento:</strong> O direito de greve é protegido pelo Art. 611-B, CLT.</div></div></section><section class="slide capa"><div class="badge">Aula 08 concluída</div>
+<div class="capa-title">A autonomia coletiva é forte,<br>mas continua juridicamente limitada.</div>
+<div class="capa-sub">Próxima aula: limites materiais da negociação coletiva e estudo aprofundado das cláusulas coletivas.</div>
+<div class="author">Prof. Adriano Március de Souza</div></section><div id="nav"><button onclick="prev()">‹</button><span id="count"></span><button onclick="next()">›</button></div><div id="help">← → / PgUp PgDn · Espaço · N: notas · F: tela cheia · Home/End</div><script>
+let cur=0;const ss=[...document.querySelectorAll('.slide')],count=document.getElementById('count'),bar=document.getElementById('bar');
+function show(i){cur=Math.max(0,Math.min(i,ss.length-1));ss.forEach(s=>s.classList.remove('active'));ss[cur].classList.add('active');count.textContent=(cur+1)+' / '+ss.length;bar.style.width=((cur+1)/ss.length*100)+'%'}
+function next(){if(cur<ss.length-1)show(cur+1)}function prev(){if(cur>0)show(cur-1)}
+document.querySelectorAll('.quiz').forEach(box=>{let opts=[...box.querySelectorAll('.opt')],c=+box.dataset.correct,fb=box.querySelector('.fb');opts.forEach((b,i)=>b.onclick=e=>{e.stopPropagation();opts.forEach((x,j)=>{x.disabled=true;if(j===c)x.classList.add('certa')});if(i!==c)b.classList.add('errada');fb.classList.add('show')})});
+document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}else if(e.key==='Home')show(0);else if(e.key==='End')show(ss.length-1);else if(e.key.toLowerCase()==='n')document.body.classList.toggle('notes');else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()}});
+const cursor=document.getElementById('cursor');document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX-7+'px';cursor.style.top=e.clientY-7+'px'});document.addEventListener('mousedown',()=>cursor.classList.add('big'));document.addEventListener('mouseup',()=>cursor.classList.remove('big'));
+show(0);
+</script></body></html>
